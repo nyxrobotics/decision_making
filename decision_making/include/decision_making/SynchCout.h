@@ -15,6 +15,7 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/condition.hpp>
 #include <boost/foreach.hpp>
+#include <iostream>
 
 using namespace std;
 
