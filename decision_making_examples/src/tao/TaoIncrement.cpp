@@ -31,7 +31,6 @@
 #include <boost/thread.hpp>
 #include <boost/foreach.hpp>
 #include <ros/ros.h>
-
 #include <decision_making/TAO.h>
 #include <decision_making/TAOStdProtocols.h>
 #include <decision_making/ROSTask.h>
@@ -48,8 +47,8 @@ TAO_HEADER(Odd)
 //#define TAO_STOP_CONDITION(X) TAO_STOP_CONDITION_AND_PRINT_EVENTS(X)
 
 struct WorldModel: public CallContextParameters{
-	int i;
-	string str()const{ stringstream s; s<<"i="<<i; return s.str(); }
+    int i;
+    string str()const{ stringstream s; s<<"i="<<i; return s.str(); }
 };
 #define WM call_ctx.parameters<WorldModel>()
 
@@ -68,7 +67,7 @@ TAO(Incrementer)
             }
             TAO_STOP_CONDITION( false );
             TAO_NEXT(NextFirstReady){
-            	TAO_NEXT_PLAN(Increment);
+                TAO_NEXT_PLAN(Increment);
             }
         }
     }
@@ -119,7 +118,7 @@ TAO(Odd)
 
 
 decision_making::TaskResult dummyTask(string name, const FSMCallContext& context, EventQueue& eventQueue) {
-	cout<<"[testTask from "<<context.str()<<"]"<<endl;
+    cout<<"[testTask from "<<context.str()<<"]"<<endl;
     sleep(1);
     return TaskResult::SUCCESS();
 }
@@ -145,5 +144,5 @@ int main(int argc, char **argv) {
     TaoIncrementer(&call_ctx, &eventQueue);
     eventQueue.close();
     ROS_INFO("Finished.");
-	return 0;
+    return 0;
 }
