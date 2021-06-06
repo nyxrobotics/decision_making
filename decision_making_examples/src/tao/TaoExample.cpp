@@ -31,7 +31,6 @@
 #include <boost/thread.hpp>
 #include <boost/foreach.hpp>
 #include <ros/ros.h>
-
 #include <decision_making/TAO.h>
 #include <decision_making/TAOStdProtocols.h>
 #include <decision_making/ROSTask.h>
@@ -49,8 +48,8 @@ TAO_HEADER(Tao3)
 
 TAO(Tao1)
 {
-	cout<<"[STR: Tao1]"<<endl;
-	struct T{~T(){ cout<<"[END: Tao1]"<<endl; }} t;
+    cout<<"[STR: Tao1]"<<endl;
+    struct T{~T(){ cout<<"[END: Tao1]"<<endl; }} t;
     TAO_PLANS{
         Plan1,
         Plan2,
@@ -102,8 +101,8 @@ TAO(Tao1)
 
 TAO(Tao2)
 {
-	cout<<"[STR: Tao2]"<<endl;
-	struct T{~T(){ cout<<"[END: Tao2]"<<endl; }} t;
+    cout<<"[STR: Tao2]"<<endl;
+    struct T{~T(){ cout<<"[END: Tao2]"<<endl; }} t;
     TAO_PLANS{
         Plan1,
         Plan2
@@ -126,16 +125,16 @@ TAO(Tao2)
             }
         }
         TAO_PLAN( Plan2 ){
-        	cout<<"[start Tao2/Plan2 "<< (justCondition?"condition check":"") <<"]"<<endl;
+            cout<<"[start Tao2/Plan2 "<< (justCondition?"condition check":"") <<"]"<<endl;
             TAO_START_CONDITION(true);
             TAO_CALL_TASK(testTask);
             TAO_ALLOCATE_EMPTY
             TAO_CLEANUP_BGN
-			{
-				cout<<"[stop Tao2/Plan2]"<<endl;
-			}
-			TAO_CLEANUP_END
-			TAO_STOP_CONDITION(true);
+            {
+                cout<<"[stop Tao2/Plan2]"<<endl;
+            }
+            TAO_CLEANUP_END
+            TAO_STOP_CONDITION(true);
             TAO_NEXT_EMPTY
         }
     }
@@ -144,8 +143,8 @@ TAO(Tao2)
 
 TAO(Tao3)
 {
-	cout<<"[STR: Tao3]"<<endl;
-	struct T{~T(){ cout<<"[END: Tao3]"<<endl; }} t;
+    cout<<"[STR: Tao3]"<<endl;
+    struct T{~T(){ cout<<"[END: Tao3]"<<endl; }} t;
     TAO_PLANS{
         Plan1,
         Plan2
@@ -182,7 +181,7 @@ TAO(Tao3)
 }
 
 decision_making::TaskResult testTask(string name, const FSMCallContext& context, EventQueue& eventQueue) {
-	cout<<"[testTask from "<<context.str()<<"]"<<endl;
+    cout<<"[testTask from "<<context.str()<<"]"<<endl;
     sleep(1);
     return TaskResult::SUCCESS();
 }
@@ -208,5 +207,5 @@ int main(int argc, char **argv) {
     eventQueue.close();
 
     ROS_INFO("Tao stopped");
-	return 0;
+    return 0;
 }

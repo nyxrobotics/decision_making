@@ -80,9 +80,9 @@ find_package(Boost REQUIRED COMPONENTS system)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES decision_making_parser
-	CATKIN_DEPENDS roscpp
+    CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
-	CFG_EXTRAS decision_making_parser-extras.cmake 
+    CFG_EXTRAS decision_making_parser-extras.cmake 
 )  
 
 ###########
@@ -108,27 +108,27 @@ include_directories(
 add_executable(decision_making_parser
     src/TAOConstructor.cpp 
     src/Parsers_TAO.cpp  
-	src/BTConstructor.cpp
-	src/Constructors.cpp
-	src/decision_making_parser.cpp
-	src/FSMConstructor.cpp
-	src/Parsers_BT.cpp
-	src/Parsers_FSM.cpp
-	src/BTConstructor_for_Dot.cpp
-	src/FSMConstructor_for_Dot.cpp
+    src/BTConstructor.cpp
+    src/Constructors.cpp
+    src/decision_making_parser.cpp
+    src/FSMConstructor.cpp
+    src/Parsers_BT.cpp
+    src/Parsers_FSM.cpp
+    src/BTConstructor_for_Dot.cpp
+    src/FSMConstructor_for_Dot.cpp
 )
  
 add_executable(tao_parser_test
     src/TAOParserTest.cpp
     src/TAOConstructor.cpp
     src/Parsers_TAO.cpp 
-	src/BTConstructor.cpp
-	src/Constructors.cpp
-	src/FSMConstructor.cpp
-	src/Parsers_BT.cpp
-	src/Parsers_FSM.cpp
-	src/BTConstructor_for_Dot.cpp
-	src/FSMConstructor_for_Dot.cpp
+    src/BTConstructor.cpp
+    src/Constructors.cpp
+    src/FSMConstructor.cpp
+    src/Parsers_BT.cpp
+    src/Parsers_FSM.cpp
+    src/BTConstructor_for_Dot.cpp
+    src/FSMConstructor_for_Dot.cpp
 )
    
               
